@@ -1,9 +1,12 @@
 [tool.poetry]
-name = "tilde_market"
+name = "market"
 version = "0.1.0"
 description = "A stock trading game for tilde."
 authors = ["Scott Rubin <apreche@frontrowcrew.com>"]
 license = "MIT"
+readme = "README.md"
+homepage = "http://tilde.town/~apreche/tilde_market/"
+repository = "https://github.com/Apreche/tilde_market"
 
 [tool.poetry.dependencies]
 python = "^3.8"

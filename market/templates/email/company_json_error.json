@@ -1,0 +1,4 @@
+{
+    "subject": "[Tilde Market] [ERROR] Invalid Company File",
+    "body": "Hi {username}!\nTilde Market here.\n\nJust want to let you know that your company.json file does not contain valid json, and was not processed. If you want to create or modify your company, you will need to fix this file.\n\nThank you for playing Tilde Market"
+}
