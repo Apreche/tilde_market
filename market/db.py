@@ -37,7 +37,7 @@ class Database:
     def commit(self):
         self._connection.commit()
 
-    def fetch_as_dict(self, query, params):
+    def fetch_as_dict(self, query, params=()):
         result = self.query(query, params)
         keys = [key[0] for key in result.description]
         row = result.fetchone()
@@ -45,7 +45,7 @@ class Database:
             return None
         return dict(zip(keys, row))
 
-    def fetchall_as_dict(self, query, params):
+    def fetchall_as_dict(self, query, params=()):
         results = self.query(query, params)
         keys = [key[0] for key in results.description]
         dict_results = []

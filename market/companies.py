@@ -1,6 +1,3 @@
-import os
-import json
-
 from market import db
 
 
@@ -35,19 +32,23 @@ def get_company_by_creator(creator):
     return database.fetch_as_dict(company_query, query_params)
 
 
-def process_file(user, filename):
-    with open(filename) as company_file:
-        data = json.load(company_file)
-    company = data.get('company', {})
-    symbol = company.get('symbol', None)
-    full_name = company.get('full_name', None)
-    import ipdb
-    ipdb.set_trace()
-    print(f"{symbol} - {full_name}")
+def get_company_by_full_name(full_name):
+    database = db.get_database()
+    company_query = """
+        SELECT * from companies WHERE full_name = ?
+    """
+    query_params = (full_name,)
+    return database.fetch_as_dict(company_query, query_params)
 
 
-def process_company_files(homedir):
-    for userdir in os.listdir(homedir):
-        company_file = os.path.join(homedir, userdir, '.market/company.json')
-        if os.path.isfile(company_file):
-            process_file(userdir, company_file)
+def get_exact_company(creator, company_symbol, full_name):
+    database = db.get_database()
+    company_query = """
+        SELECT *
+        FROM companies
+        WHERE creator = ?
+        AND symbol = ?
+        AND full_name = ?
+    """
+    query_params = (creator, company_symbol, full_name)
+    return database.fetch_as_dict(company_query, query_params)

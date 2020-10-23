@@ -1,0 +1,4 @@
+{
+    "subject": "[Tilde Market] [ERROR] Invalid Config File",
+    "body": "Hi {username}!\nTilde Market here.\n\nJust want to let you know that your config.json file is not valid, and was not processed. To create your company, you will need to fix this file.\n\n{error_message}\n\n--\nThank you for playing Tilde Market"
+}

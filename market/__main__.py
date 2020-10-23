@@ -5,7 +5,7 @@ import companies
 print(f"ARGV: {sys.argv}")
 
 homedir = '/home/'
-companies.process_company_files()
+companies.process_all_company_files()
 
 # order_file = os.path.join(homedir, userdir, '.market/orders.csv')
 # if os.path.isfile(order_file):
