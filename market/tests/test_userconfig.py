@@ -3,6 +3,7 @@ import os
 from market import db
 from market import companies
 from market import players
+from market import stocks
 from market import userconfig
 
 from market.tests import utils
@@ -169,6 +170,15 @@ class UserConfigTest(utils.MarketDBTest):
             self.assertEqual(test_company, created_company)
             player = players.get_player(test_company['creator'])
             self.assertIsNotNone(player)
+            shares = stocks.get_all_company_shares(test_company['symbol'])
+            expected_shares = [
+                {
+                    'company': test_company['symbol'],
+                    'player': test_company['creator'],
+                    'quantity': stocks.COMPANY_STARTING_SHARES,
+                }
+            ]
+            self.assertEqual(shares, expected_shares)
 
         badcorp = companies.get_company_by_symbol('BADU')
         self.assertIsNone(badcorp)

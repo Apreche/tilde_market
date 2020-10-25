@@ -7,7 +7,6 @@ def create_player(player_name):
     database.query(
         player_query, (player_name,), commit=True
     )
-    database.connection.commit()
 
 
 def get_player(player_name):
