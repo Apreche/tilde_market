@@ -5,6 +5,7 @@ import re
 from market import companies
 from market import mail
 from market import players
+from market import stocks
 
 
 def validate_config_data(user, config_data):
@@ -82,6 +83,7 @@ def process_config_data(user, config_data):
     if not player:
         players.create_player(user)
     companies.create_company(symbol, full_name, user)
+    stocks.new_company_shares(user)
 
 
 def process_all_config_files(homedir):
